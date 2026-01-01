@@ -1,0 +1,101 @@
+:root{
+    --sds-typography-title-hero-font-family : "Inter" , sans-serif;
+    --sds-typography-title-hero-font-weight : 700 ;
+    --sds-typography-body-font-family : "Inter" , sans-serif; 
+    --sds-typography-body-size-medium : 16px ;
+    --sds-typography-body-font-weight-regular : 400 ;
+}
+body {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+
+.header-nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 24px;
+    align-items: center;
+    gap: 119px;
+    background-color: #1a1a1a;
+}
+
+.nav-buttons {
+    display: flex;
+    width: 687px;
+    height: 56px;
+    max-width: 687px;
+    align-items: center;
+    gap: 38px;
+    flex-shrink: 0;
+}
+
+.menu-item {
+    display: flex;
+    width: 112px;
+    height: 49px;
+    padding: 20px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-item p {
+    color: #FFF;
+    text-align: center;
+
+    font-family: var(--sds-typography-body-font-family);
+    font-size: var(--sds-typography-body-size-medium);
+    font-style: normal;
+    font-weight: var(--sds-typography-body-font-weight-regular);
+    line-height: 100%;
+    /* 16px */
+}
+
+.menu-item:hover p {
+    /* color: rgba(255, 255, 255, 0.7); */
+}
+
+.menu-item.highlighted {
+    /* background-color: #000000;
+    border-radius: 10px; */
+}
+
+.menu-item.highlighted:hover {
+    /* background-color: #2B2929;
+    border-radius: 10px; */
+}
+
+.menu-item.highlighted p {
+    /* color: #ffffff; */
+}
+
+.logo-div {
+    display: flex;
+    width: 231px;
+    height: 56px;
+    padding: 10.6px 7.6px 11.8px 8.6px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo-text {
+    display: flex;
+    width: 214.8px;
+    height: 33.6px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: center;
+    font-family: var(--sds-typography-title-hero-font-family);
+    font-size: 43.2px;
+    font-style: normal;
+    font-weight: var(--sds-typography-title-hero-font-weight);
+    line-height: 120%;
+    /* 51.84px */
+    letter-spacing: -1.296px;
+}
