@@ -1,0 +1,24 @@
+{% extends "header.html" %}
+
+{% block title %}Login - Issue Net{% endblock title %}
+
+{% block css %}
+    <link rel="stylesheet" href=" {{url_for('static', filename='css/login.css') }}">
+{% endblock css %}
+
+{% block main_classes %}login-body{% endblock main_classes %}
+
+{% block content %}
+
+<div class="login-card">
+    <h2 class="login-heading" >Login</h2>
+    <form action="" class="login-form">
+
+        <input type="email" name="" id="" class="form-feild form-element" placeholder="Email">
+        <input type="password" name="" id="" class="form-feild form-element " placeholder="Password">
+        <button type="submit" class="form-element submit-button">Login</button>
+
+    </form>
+</div>
+
+{% endblock content %}
