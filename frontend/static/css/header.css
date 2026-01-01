@@ -11,12 +11,10 @@ body {
     margin: 0;
 }
 
-
 .header-nav {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding: 0 24px;
     align-items: center;
     gap: 119px;
     background-color: #1a1a1a;
@@ -54,23 +52,6 @@ body {
     /* 16px */
 }
 
-.menu-item:hover p {
-    /* color: rgba(255, 255, 255, 0.7); */
-}
-
-.menu-item.highlighted {
-    /* background-color: #000000;
-    border-radius: 10px; */
-}
-
-.menu-item.highlighted:hover {
-    /* background-color: #2B2929;
-    border-radius: 10px; */
-}
-
-.menu-item.highlighted p {
-    /* color: #ffffff; */
-}
 
 .logo-div {
     display: flex;
@@ -98,4 +79,8 @@ body {
     line-height: 120%;
     /* 51.84px */
     letter-spacing: -1.296px;
+}
+
+.header-nav a {
+    text-decoration: none;
 }
