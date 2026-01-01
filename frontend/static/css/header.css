@@ -18,6 +18,9 @@ body {
     align-items: center;
     gap: 119px;
     background-color: #1a1a1a;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .nav-buttons {

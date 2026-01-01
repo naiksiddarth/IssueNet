@@ -1,52 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Issue Net{% endblock title %}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Issue Net{% endblock title %}</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+        {% block css %}{% endblock css %}
+        {% block js %}{% endblock js %}
+    </head>
 
-<body>
-    <nav class="header-nav">
-        <a href="/">
-            <div class="logo-div">
-                <p class="logo-text">ISSUE NET</p>
+    <body>
+        <nav class="header-nav">
+            <a href="/">
+                <div class="logo-div">
+                    <p class="logo-text">ISSUE NET</p>
+                </div>
+            </a>
+            <div class="nav-buttons">
+                <a href="/dashboard">
+                    <div class="menu-item">
+                        <p>Dashboard</p>
+                    </div>
+                </a>
+                <a href="/issues">
+                    <div class="menu-item">
+                        <p>Issues</p>
+                    </div>
+                </a>
+                <a href="/login">
+                    <div class="menu-item highlighted">
+                        <p>Login</p>
+                    </div>
+                </a>
+                <a href="/signup">
+                    <div class="menu-item highlighted">
+                        <p>Signup</p>
+                    </div>
+                </a>
             </div>
-        </a>
-        <div class="nav-buttons">
-            <a href="/dashboard">
-                <div class="menu-item">
-                    <p>Dashboard</p>
-                </div>
-            </a>
-            <a href="/issues">
+        </nav>
 
-                <div class="menu-item">
-                    <p>Issues</p>
-                </div>
-            </a>
-            <a href="/login">
+        <main class="{% block main_classes %}{% endblock main_classes %}">
+            {% block content %}{% endblock content %}
+        </main>
 
-                <div class="menu-item highlighted">
-                    <!-- style="padding-top: 0px; padding-bottom: 0px;" -->
-                    <p>Login</p>
-                </div>
-            </a>
-            <a href="/signup">
-                <div class="menu-item highlighted">
-                    <p>Signup</p>
-                </div>
-            </a>
-        </div>
-    </nav>
-
-    <main>
-        {% block content %}{% endblock content %}
-    </main>
-
-</body>
+    </body>
 
 </html>
