@@ -1,0 +1,45 @@
+{% extends "header.html" %}
+
+{% block title %}Signup - Issue Net{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+{% endblock css %}
+
+{% block js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.querySelector('.signup-form');
+        form.addEventListener('submit', function (event) {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+            if (password !== confirmPassword) {
+                event.preventDefault();
+                alert('Passwords do not match!');
+            }
+        });
+    });
+</script>
+{% endblock js %}
+
+{% block main_classes %}signup-body{% endblock main_classes %}
+
+{% block content %}
+
+<div class="signup-card">
+    <h2 class="signup-heading">Signup</h2>
+    <form action="" class="signup-form">
+
+        <input type="text" name="name" id="name" class="form-field form-element" placeholder="Name" required>
+        <input type="email" name="email" id="email" class="form-field form-element" placeholder="Email" required>
+        <input type="password" name="password" id="password" class="form-field form-element " placeholder="Password"
+            required>
+        <input type="password" name="confirm_password" id="confirm_password" class="form-field form-element "
+            placeholder="Confirm Password" required>
+        <button type="submit" class="form-element submit-button">Signup</button>
+
+    </form>
+    <a href="{{ url_for('login') }}" class="login-link">Already have an account? Login</a>
+</div>
+
+{% endblock content %}
