@@ -9,3 +9,15 @@ def root():
 @app.route('/login')
 def login():
     return render_template('login.html')
+
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')
+
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
+@app.route('/issues')
+def issues():
+    return render_template('issues.html')
