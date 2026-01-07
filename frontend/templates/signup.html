@@ -7,19 +7,7 @@
 {% endblock css %}
 
 {% block js %}
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const form = document.querySelector('.signup-form');
-        form.addEventListener('submit', function (event) {
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirm_password').value;
-            if (password !== confirmPassword) {
-                event.preventDefault();
-                alert('Passwords do not match!');
-            }
-        });
-    });
-</script>
+<script defer src="{{ url_for('static', filename='js/signup.js') }}" ></script>
 {% endblock js %}
 
 {% block main_classes %}signup-body{% endblock main_classes %}
