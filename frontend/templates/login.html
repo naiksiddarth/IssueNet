@@ -6,6 +6,10 @@
     <link rel="stylesheet" href=" {{url_for('static', filename='css/login.css') }}">
 {% endblock css %}
 
+{% block js %}
+    <script defer src="{{ url_for('static', filename='js/login.js') }}" ></script>
+{% endblock js %}
+
 {% block main_classes %}login-body{% endblock main_classes %}
 
 {% block content %}
@@ -14,8 +18,8 @@
     <h2 class="login-heading" >Login</h2>
     <form action="" class="login-form">
 
-        <input type="email" name="" id="" class="form-feild form-element" placeholder="Email">
-        <input type="password" name="" id="" class="form-feild form-element " placeholder="Password">
+        <input type="email" name="email" id="email" class="form-feild form-element" placeholder="Email">
+        <input type="password" name="" id="password" class="form-feild form-element " placeholder="Password">
         <button type="submit" class="form-element submit-button">Login</button>
 
     </form>
