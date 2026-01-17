@@ -48,15 +48,21 @@ const loginUser = asyncHandler( async function(req, res) {
     if(!user) throw new APIError(401, "user not found")
     if(user.checkPassword(password)){
         const { accessToken, refreshToken } = await generateAccessAndRefreshToken(user._id)
-        const options = {
-            httpOnly: true,
-            secure: true,
-            sameSite: "none"
-        }
+    const refreshTokenOptions = {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+        path: "/api/auth/refresh"
+    }
+        const accesTokenOptions = {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none"
+    }
         return res
         .status(200)
-        .cookie("accessToken", accessToken, options)
-        .cookie("refreshToken", refreshToken, options)
+        .cookie("accessToken", accessToken, accesTokenOptions)
+        .cookie("refreshToken", refreshToken, refreshTokenOptions)
         .json(new APIResponse(
             200,
             {
@@ -71,5 +77,44 @@ const loginUser = asyncHandler( async function(req, res) {
     }
 })
 
+const logoutUser = asyncHandler(async function(req, res) {
+    const user = req.user 
+    if(!user) {
+        throw new APIError(401, "You can't access this route. Login first")
+    }
+    const loggedOutUser = await User.findByIdAndUpdate(user._id, {
+        $set: {
+            refreshToken: ""
+        }
+    },
+    {
+        new: true
+    }
+    )
 
-export { registerUser, loginUser}
+    const refreshTokenOptions = {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+        path: "/api/auth/refresh"
+    }
+        const accesTokenOptions = {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none"
+    }
+
+    return res
+        .status(200)
+        .clearCookie("accessToken", accesTokenOptions)
+        .clearCookie("refreshToken", refreshTokenOptions)
+        .json(
+            new APIResponse(
+                200,
+                {},
+                "User logged out"
+            )
+        )
+})
+
+export { registerUser, loginUser, logoutUser}
