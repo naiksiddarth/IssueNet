@@ -1,6 +1,6 @@
 import { body } from "express-validator"
 
-export const registrationVaidator = function () {
+export const registrationValidator = function () {
     
     return [
         body("email")
@@ -12,9 +12,24 @@ export const registrationVaidator = function () {
         body("username")
             .trim()
             .notEmpty()
-            .withMessage("Username cannot be empty")
+            .withMessage("Username cannot be empty"),
+        body("password")
+            .notEmpty()
+            .withMessage("Password cannot be empty")
 
     ]
-    // console.log(data)
-    // return data
+}
+
+export const loginValidator = function (){
+    return [
+        body("email")
+            .trim()
+            .notEmpty()
+            .withMessage("Email cannot be empty")
+            .isEmail()
+            .withMessage("Please enter a valid email address"),
+        body("password")
+            .notEmpty()
+            .withMessage("Password cannot be empty")
+    ]
 }
