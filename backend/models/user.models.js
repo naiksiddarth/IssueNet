@@ -1,6 +1,7 @@
 import mongoose from "mongoose"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
+import { APIError } from "../utils/api-errors.js"
 
 const userSchema = mongoose.Schema({
         username: {
@@ -56,6 +57,15 @@ userSchema.methods.generateRefreshToken = function () {
             expiresIn: process.env.REFRESH_TOKEN_EXPIRY
         }
     )
+}
+
+userSchema.methods.checkPassword = async function (password) {
+    try {
+        const userPassword = this.password
+        return await bcrypt.compare(password, userPassword)
+    } catch (error) {
+        APIError(500, "Error checking password")
+    }
 }
 
 const User = mongoose.model("User", userSchema)
