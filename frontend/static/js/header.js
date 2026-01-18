@@ -16,7 +16,7 @@ const renderLoginLogout = function () {
         </a>
     </div>
     `
-    if(localStorage.getItem("isLoggedIn")){
+    if(localStorage.getItem("isLoggedIn") === "true") {
         navButtons.removeChild(loginButton)
         navButtons.removeChild(signupButton)
         navButtons.appendChild(logoutButton)
