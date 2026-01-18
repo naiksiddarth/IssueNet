@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
+    localStorage.setItem("isLoggedIn", false)
+
     const emailField = document.getElementById("email")
     const passwordField = document.getElementById("password")
     const loginForm = document.querySelector(".login-form")
@@ -20,6 +22,10 @@ document.addEventListener("DOMContentLoaded", function() {
             },
             body: JSON.stringify(formData)
         })
-        console.log(response)
+        if(response.ok){
+            localStorage.setItem("isLoggedIn", true)
+            console.log("login")
+            renderLoginLogout()
+        }
     })
 })
