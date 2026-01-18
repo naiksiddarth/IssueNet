@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         if(response.ok){
             localStorage.setItem("isLoggedIn", true)
-            console.log("login")
             renderLoginLogout()
+            window.location.assign("/issues")
         }
     })
 })
