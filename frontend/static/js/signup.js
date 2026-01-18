@@ -32,6 +32,7 @@ form.addEventListener('submit', async function (event) {
         passwordField.value = ""
         confirmPassowrdField.value = ""
         alert("succesfully created user")
+        window.location.assign("/login")
     } else {
         alert("Cannot create user. Please try again")
     }
