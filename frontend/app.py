@@ -21,3 +21,7 @@ def dashboard():
 @app.route('/issues')
 def issues():
     return render_template('issues.html')
+
+@app.route("/logout")
+def logout():
+    return render_template('logout.html')
