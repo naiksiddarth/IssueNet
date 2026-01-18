@@ -25,12 +25,13 @@ body {
 
 .nav-buttons {
     display: flex;
-    width: 687px;
+    width: 100%;
     height: 56px;
     max-width: 687px;
     align-items: center;
     gap: 38px;
     flex-shrink: 0;
+    justify-content: flex-end;
 }
 
 .menu-item {
